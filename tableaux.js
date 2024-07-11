@@ -64,7 +64,6 @@ function showData() {
         html += "<td>" + element.categorie + "</td>";
         html += "<td>" + element.message + "</td>";
         html += `<td>
-                    <button onclick="editData(${index})" class="btn btn-warning">Edit</button>
                     <button onclick="deleteData(${index})" class="btn btn-danger">Delete</button>
                  </td>`;
         html += "</tr>";
@@ -84,35 +83,4 @@ function deleteData(index) {
     ideaList.splice(index, 1);
     localStorage.setItem("ideaList", JSON.stringify(ideaList));
     showData();
-}
-
-function editData(index) {
-    let ideaList;
-    if (localStorage.getItem("ideaList") == null) {
-        ideaList = [];
-    } else {
-        ideaList = JSON.parse(localStorage.getItem("ideaList"));
-    }
-
-    document.getElementById("libelle").value = ideaList[index].libelle;
-    document.getElementById("categorie").value = ideaList[index].categorie;
-    document.getElementById("message").value = ideaList[index].message;
-
-    document.getElementById("Submit").style.display = "none";
-    document.getElementById("Update").style.display = "block";
-
-    document.querySelector("#Update").onclick = function() {
-        if (!validateForm()) return;
-
-        ideaList[index].libelle = document.getElementById("libelle").value;
-        ideaList[index].categorie = document.getElementById("categorie").value;
-        ideaList[index].message = document.getElementById("message").value;
-
-        localStorage.setItem("ideaList", JSON.stringify(ideaList));
-        showData();
-
-        document.getElementById("Submit").style.display = "block";
-        document.getElementById("Update").style.display = "none";
-        document.getElementById("loginForm").reset();
-    }
 }
