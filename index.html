@@ -42,35 +42,39 @@
   </head>
   <body>
     <h2 style="text-align: center;">Formulaire d'inscription</h2>
-    <form name="RegForm" action="/submit.php" onsubmit="return W3docs()" method="post" class="w3docs">
+    <form name="RegForm" action="/submit.php"  id="loginForm">
         <div>
             <label>Catégories</label>
-            <select type="text" value="" name="Sujet">
+            <select type="text" value="" name="sujet">
               <option></option>
               <option>Politique</option>
               <option>Sport</option>
               <option>Santé</option>
               <option>Education</option>
             </select>
+            <small></small>
           </div>
           <br />
 
       <div>
-        <label for="Nom">Libelle:</label>
-        <input type="text" id="Nom" size="60" name="Nom" />
+        <label for="libelle">Libelle:</label>
+        <input type="text" id="libelle" size="60" name="libelle" />
+        <small></small>
       </div>
       <br />
     
       <div>
-        <label for="commentaire">Message: </label>
-        <textarea cols="68" id="commentaire" rows="15" name="Commentaire"></textarea>
+        <label for="message">Message: </label>
+        <textarea cols="68" id="message" rows="15" name="message"></textarea>
+        <small></small>
       </div>
       <div class="buttons">
         <input type="submit" value="Envoyer" name="Envoyer" />
         <input type="reset" value="Réinitialiser" name="Réinitialiser" />
+        <small></small>
       </div>
     </form>
-
+    <script src="tableaux.js"></script>
   </body>
 </html>
 
